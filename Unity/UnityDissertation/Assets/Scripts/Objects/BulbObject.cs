@@ -19,11 +19,9 @@ public class BulbObject : BaseObject, ILightEmitter, ITemperatureEmitter
     public GameObject GameObject { get { return this.gameObject; } }
     void Start()
     {
-        objectType = "Bulb";
         temperatureCollider = this.gameObject.transform.GetChild(1).gameObject;
         temperature = 35.0f;
         dispersion = 15;
-        Debug.Log("ambient temperature is: " + WorldClass.Instance.AmbientTemperature);
 
         float colliderRadius = (WorldClass.Instance.AmbientTemperature - temperature) / dispersion;
         //This will be negative because the temperature of the bulb is not high enough
